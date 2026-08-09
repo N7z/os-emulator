@@ -1,4 +1,4 @@
 pub fn run() {
     println!("Bye!");
-    std::process::abort();
+    std::process::exit(0);
 }

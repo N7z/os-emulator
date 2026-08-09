@@ -22,10 +22,5 @@ fn main() {
             Some(cmd) => (cmd.run)(),
             None => println!("Unknown command: {}", prompt.trim()),
         };
-
-        if prompt.trim() == "exit" {
-            println!("Bye!");
-            break;
-        }
     }
 }
