@@ -7,7 +7,7 @@ pub struct Command {
     pub run: fn(),
 }
 
-const COMMANDS: &[Command] = &[
+pub const COMMANDS: &[Command] = &[
     Command {
         name: "help",
         description: "shows all available commands",

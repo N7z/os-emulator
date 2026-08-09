@@ -1,5 +1,9 @@
+use crate::command_registry::COMMANDS;
+
 pub fn run() {
     println!("The available commands are:");
-    println!("- help | shows the available commands");
-    println!("- shutdown | shuts the system down");
+
+    for cmd in COMMANDS.iter() {
+        println!("- {} | {}", cmd.name, cmd.description);
+    }
 }
