@@ -1,5 +1,6 @@
 use std::io::{self, Write};
 
+mod cmds;
 mod command_registry;
 
 fn main() {
@@ -18,7 +19,7 @@ fn main() {
             .expect("Something wrong happened");
 
         match command_registry::resolve(prompt.trim()) {
-            Some(cmd) => println!("The command used was {}", cmd.name),
+            Some(cmd) => (cmd.run)(),
             None => println!("Unknown command: {}", prompt.trim()),
         };
 
