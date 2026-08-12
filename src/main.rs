@@ -2,8 +2,11 @@ use std::io::{self, Write};
 
 mod cmds;
 mod command_registry;
+mod kernel;
 
 fn main() {
+    let mut kernel = kernel::Kernel::new();
+
     println!("╔══════════════════════╗");
     println!("║     OS Emulator      ║");
     println!("╚══════════════════════╝");
@@ -32,7 +35,7 @@ fn main() {
         let args: Vec<&str> = parts.collect();
 
         match command_registry::resolve(name) {
-            Some(cmd) => (cmd.run)(&args),
+            Some(cmd) => (cmd.run)(&mut kernel, &args),
             None => println!("Unknown command: {}", name),
         };
     }

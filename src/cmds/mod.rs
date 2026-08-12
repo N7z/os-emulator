@@ -1,3 +1,9 @@
+pub mod cat;
+pub mod cd;
 pub mod clear;
 pub mod help;
+pub mod ls;
+pub mod mkdir;
+pub mod pwd;
 pub mod shutdown;
+pub mod touch;
