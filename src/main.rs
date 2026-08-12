@@ -14,14 +14,9 @@ fn main() {
 
         let mut prompt = String::new();
 
-        let bytes = io::stdin()
+        io::stdin()
             .read_line(&mut prompt)
             .expect("Something wrong happened");
-
-        if bytes == 0 {
-            println!();
-            break;
-        }
 
         let mut parts = prompt.split_whitespace();
 

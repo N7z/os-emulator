@@ -1,3 +1,4 @@
+use crate::cmds::clear;
 use crate::cmds::help;
 use crate::cmds::shutdown;
 
@@ -17,6 +18,11 @@ pub const COMMANDS: &[Command] = &[
         name: "shutdown",
         description: "shuts the system down",
         run: shutdown::run,
+    },
+    Command {
+        name: "clear",
+        description: "clears the terminal screen",
+        run: clear::run,
     },
 ];
 
