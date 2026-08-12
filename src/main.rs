@@ -18,9 +18,17 @@ fn main() {
             .read_line(&mut prompt)
             .expect("Something wrong happened");
 
-        match command_registry::resolve(prompt.trim()) {
-            Some(cmd) => (cmd.run)(),
-            None => println!("Unknown command: {}", prompt.trim()),
+        let mut parts = prompt.split_whitespace();
+
+        let Some(name) = parts.next() else {
+            continue;
+        };
+
+        let args: Vec<&str> = parts.collect();
+
+        match command_registry::resolve(name) {
+            Some(cmd) => (cmd.run)(&args),
+            None => println!("Unknown command: {}", name),
         };
     }
 }

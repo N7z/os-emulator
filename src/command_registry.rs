@@ -4,7 +4,7 @@ use crate::cmds::shutdown;
 pub struct Command {
     pub name: &'static str,
     pub description: &'static str,
-    pub run: fn(),
+    pub run: fn(&[&str]),
 }
 
 pub const COMMANDS: &[Command] = &[
